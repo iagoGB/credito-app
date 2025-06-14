@@ -13,4 +13,18 @@ import lombok.RequiredArgsConstructor;
 public class CreditoService {
     
     private final CreditoRepository creditoRepository;
+
+    public List<CreditoDto> consultarPorNotaFiscal(String numeroNfse) {
+        return creditoRepository.findAllByNumeroNfse(numeroNfse)
+        .stream()
+        .map(CreditoDto::from)
+        .toList();
+    }
+
+    public List<CreditoDto> consultarPorNumeroCredito(String numeroCredito) {
+        return creditoRepository.findAllByNumeroCredito(numeroCredito) 
+        .stream()
+        .map(CreditoDto::from)
+        .toList();
+    }
 }

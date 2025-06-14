@@ -11,4 +11,6 @@ import br.com.desafio.credito.entity.Credito;
 public interface CreditoRepository extends JpaRepository<Credito, Long> {
     
     List<Credito> findAllByNumeroNfse(String numeroNfse);
+
+    List<Credito> findAllByNumeroCredito(String numeroCredito);
 }
