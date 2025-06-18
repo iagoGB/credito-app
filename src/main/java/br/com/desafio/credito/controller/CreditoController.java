@@ -1,6 +1,7 @@
 package br.com.desafio.credito.controller;
 
 import br.com.desafio.credito.service.CreditoService;
+import br.com.desafio.credito.service.KafkaPublisherService;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -20,8 +21,11 @@ public class CreditoController {
 
     private final CreditoService creditoService;
 
+    private final KafkaPublisherService kafkaPublisherService;
+
     @GetMapping("/{numeroNfse}")
     public ResponseEntity<List<CreditoDto>> consultarPorNotaFiscal(@PathVariable String numeroNfse) {
+        kafkaPublisherService.enviarLog("Consulta para a nota fiscal número %s efetuada".formatted(numeroNfse));
         return ResponseEntity.ok(creditoService.consultarPorNotaFiscal(numeroNfse));
     }
 
