@@ -1,0 +1,23 @@
+th, tr {
+    text-align: center;
+}
+
+button#dropdownMenu {
+        width: 173px;
+}
+
+@media (max-width: 767.98px) {
+
+    .w-100-until-md {
+        width: 100% !important;
+    }
+
+    .dropdown-w-100 div {
+        width: 100% !important;
+    }
+
+    button#dropdownMenu {
+        width: 100% !important;
+    }
+
+}

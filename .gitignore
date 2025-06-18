@@ -31,3 +31,45 @@ build/
 
 ### VS Code ###
 .vscode/
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Compiled output
+/credito-frontend/dist
+/credito-frontend/tmp
+/credito-frontend/out-tsc
+/credito-frontend//bazel-out
+
+# Node
+/credito-frontend/node_modules
+/credito-frontend/npm-debug.log
+/credito-frontend/yarn-error.log
+
+# IDEs and editors
+/credito-frontend/.idea/
+/credito-frontend/.project
+/credito-frontend/.classpath
+/credito-frontend/.c9/
+/credito-frontend/*.launch
+/credito-frontend/.settings/
+/credito-frontend/*.sublime-workspace
+
+# Visual Studio Code
+/credito-frontend/.vscode/*
+/credito-frontend/!.vscode/settings.json
+/credito-frontend/!.vscode/tasks.json
+/credito-frontend/!.vscode/launch.json
+/credito-frontend/!.vscode/extensions.json
+/credito-frontend/.history/*
+
+# Miscellaneous
+/credito-frontend/.angular/cache
+/credito-frontend/.sass-cache/
+/credito-frontend/connect.lock
+/credito-frontend/coverage
+/credito-frontend/libpeerconnection.log
+/credito-frontend/testem.log
+/credito-frontend/typings
+
+# System files
+/credito-frontend/.DS_Store
+/credito-frontend/Thumbs.db

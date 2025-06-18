@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <ngb-alert [dismissible]="true" [animation]="true" *ngIf="formularioPesquisa.invalid && formularioSubmetido"
+      (closed)="onCloseAlert()">
+      <strong>Atenção!</strong> Informe um valor de nota fiscal ou crédito
+    </ngb-alert>
+  </div>
+
+  <div class="row justify-content-center g-3">
+    <div class="col-12 col-md-3 col-lg-3 col-xl-2">
+      <div ngbDropdown class="dropdown-w-100 d-inline-block w-100-until-md">
+        <button class="btn btn-outline-primary" id="dropdownMenu" ngbDropdownToggle>
+          {{ formularioPesquisa.value.tipo || 'Selecione um filtro' }}
+        </button>
+
+        <div ngbDropdownMenu aria-labelledby="dropdownMenu w-100-until-md">
+          <button class="dropdown-item" *ngFor="let opcao of opcoesFiltro" (click)="selecionar(opcao)">
+            {{ opcao }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-6 col-xl-8" [formGroup]="formularioPesquisa">
+      <input type="text" class="form-control" formControlName="valor" placeholder="Digite o valor">
+    </div>
+    <div class="col-12 col-md-3 col-lg-3 col-xl-2">
+      <button class="btn btn-primary w-100-until-md" (click)="pesquisarNfes()">Pesquisar</button>
+    </div>
+  </div>
+
+  <div *ngIf="creditos && creditos.length > 0" class="table-responsive mt-5">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Número do crédito</th>
+          <th scope="col">NFS-e</th>
+          <th scope="col">data da constituição</th>
+          <th scope="col">ISSQN</th>
+          <th scope="col">tipo de crédito</th>
+          <th scope="col">Simples nacional</th>
+          <th scope="col">Aliquota</th>
+          <th scope="col">Valor Faturado</th>
+          <th scope="col">Valor da deducão</th>
+          <th scope="col">Base de cálculo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let credito of creditos">
+          <td>{{ credito.numeroCredito }}</td>
+          <td>{{ credito.numeroNfse}}</td>
+          <td>{{ credito.dataConstituicao }}</td>
+          <td>R$ {{ credito.valorIssqn }}</td>
+          <td>{{ credito.tipoCredito }}</td>
+          <td>{{ credito.simplesNacional }}</td>
+          <td>{{ credito.aliquota }} %</td>
+          <td>R$ {{ credito.valorFaturado }}</td>
+          <td>R$ {{ credito.valorDeducao }}</td>
+          <td>R$ {{ credito.baseCalculo }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
