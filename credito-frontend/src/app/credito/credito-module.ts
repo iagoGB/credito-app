@@ -6,7 +6,7 @@ import { Listagem } from './listagem/listagem';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreditoService } from './service/credito-service';
 import { HttpClient } from '@angular/common/http';
-import { NgbAlertModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlertModule, NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -19,7 +19,8 @@ import { NgbAlertModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     CreditoRoutingModule,
     NgbDropdownModule,
-    NgbAlertModule
+    NgbAlertModule,
+    NgbModule
   ], 
   providers: [
     CreditoService,

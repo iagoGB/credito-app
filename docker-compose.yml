@@ -48,3 +48,15 @@ services:
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
       - SPRING_DATASOURCE_URL=jdbc:postgresql://host.docker.internal:5432/credito_db
 
+  frontend:
+    build: ./credito-frontend
+    container_name: angular-frontend
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./credito-frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    command: npm run start
+
